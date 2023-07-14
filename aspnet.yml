@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+    - main
+env:
+  buildConfiguration: Release
+jobs:
+  __default_Stage_Job:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: dotnet build ${{ env.buildConfiguration }}
+      run: dotnet build --configuration ${{ env.buildConfiguration }}
+      shell: cmd
